@@ -54,3 +54,4 @@ tmp
 
 # Database
 *.db
+idol/home/config.json
