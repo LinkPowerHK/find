@@ -1,3 +1,4 @@
+
 # Java
 *.class
 *.log
@@ -10,6 +11,11 @@
 *.iml
 *.iws
 *.ids
+
+# Eclipse 
+.project
+*.classpath
+*.prefs
 
 # Maven
 log/
