@@ -106,24 +106,38 @@ define([
                 // other handlers called before this trigger
                 this.trigger('toggle', this.collapsed);
             },
-            'show.bs.collapse': function() {
+            //Extra
+            'click > .collapsible-test': function() {
+                this.$test.collapse('toggle');
+
+                this.trigger('toggletest', this.collapsedtest);
+            },
+
+            'show.bs.collapse > .clps': function() {
                 this.collapsed = false;
                 this.updateHeaderState();
-
                 this.trigger('show');
+            },
+            'show.bs.collapse > .test': function() {
+                this.collapsedtest = false;
+                this.updateHeaderTest();
+                this.trigger('showtest');
             },
             'shown.bs.collapse': function() {
                 if (this.renderOnOpen) {
                     this.view.render();
                 }
-
                 this.trigger('shown');
             },
-            'hide.bs.collapse': function() {
+            'hide.bs.collapse > .clps': function() {
                 this.collapsed = true;
                 this.updateHeaderState();
-
                 this.trigger('hide');
+            },
+            'hide.bs.collapse > .test': function() {
+                this.collapsedtest = true;
+                this.updateHeaderTest();
+                this.trigger('hidetest');
             }
         },
 
@@ -192,6 +206,8 @@ define([
             this.title = options.title;
             this.subtitle = options.subtitle;
             this.renderOnOpen = options.renderOnOpen || false;
+            //
+            this.collapsedtest = options.collapsedtest || false;
         },
 
         render: function () {
@@ -216,14 +232,19 @@ define([
             //Extended features
 
             this.$header = this.$('.collapsible-header');
-            this.updateHeaderState();
+            //Added
+            this.$headertest = this.$('.collapsible-test');
 
+            this.updateHeaderState();
+            this.updateHeaderTest();
             // activate plugin manually for greater control of click handlers
-            this.$collapse = this.$('.collapse').collapse({
+            this.$collapse = this.$('.clps').collapse({
                 toggle: !this.collapsed
             });
-
-
+            //
+            this.$test = this.$('.test').collapse({
+                toggle:!this.collapsedtest
+            });
         },
         //Extended functions
         remove: function() {
@@ -234,15 +255,6 @@ define([
         updateHeaderState: function() {
             // The "collapsed" class controls the icons with class "rotating-chevron"
             this.$header.toggleClass('collapsed', this.collapsed);
-        },
-
-        setSubTitle: function(subtitle) {
-            this.subtitle = subtitle;
-            this.$('.collapsible-subtitle').text(subtitle);
-        },
-
-        toggleSubtitle: function(toggle) {
-            this.$('.collapsible-subtitle').toggleClass('hide', !toggle)
         },
 
         show: function() {
@@ -262,6 +274,27 @@ define([
                 this.show();
             } else {
                 this.hide();
+            }
+        },
+        //Added
+        updateHeaderTest: function(){
+            this.$headertest.toggleClass('collapsed',this.collapsedtest);
+        },
+        showtest: function () {
+            if(this.collapsedtest){
+             this.$test.collapse('show');
+            }
+        },
+        hidetest:function () {
+            if(!this.collapsedtest){
+                this.$test.collapse('hide');
+            }
+        },
+        toggletest: function (state) {
+            if(state){
+                this.showtest();
+            }else {
+                this.hidetest();
             }
         }
     });
