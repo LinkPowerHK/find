@@ -98,6 +98,32 @@ define([
                 var $target = $(e.currentTarget);
                 var queryCluster = Number($target.attr('data-entity-cluster'));
                 this.clickHandler(this.entityCollection.getClusterEntities(queryCluster));
+            },
+            //Extended features
+            'click > .collapsible-header': function() {
+                this.$collapse.collapse('toggle');
+
+                // other handlers called before this trigger
+                this.trigger('toggle', this.collapsed);
+            },
+            'show.bs.collapse': function() {
+                this.collapsed = false;
+                this.updateHeaderState();
+
+                this.trigger('show');
+            },
+            'shown.bs.collapse': function() {
+                if (this.renderOnOpen) {
+                    this.view.render();
+                }
+
+                this.trigger('shown');
+            },
+            'hide.bs.collapse': function() {
+                this.collapsed = true;
+                this.updateHeaderState();
+
+                this.trigger('hide');
             }
         },
 
@@ -160,6 +186,12 @@ define([
             this.listenTo(this.entityCollection, 'error', function () {
                 this.model.set('viewState', ViewState.ERROR);
             });
+            //Extended features
+            this.view = options.view;
+            this.collapsed = options.collapsed || false;
+            this.title = options.title;
+            this.subtitle = options.subtitle;
+            this.renderOnOpen = options.renderOnOpen || false;
         },
 
         render: function () {
@@ -180,8 +212,58 @@ define([
 
             this.selectViewState = viewStateSelector(viewStateElements);
             updateForViewState.call(this);
-        }
 
+            //Extended features
+
+            this.$header = this.$('.collapsible-header');
+            this.updateHeaderState();
+
+            // activate plugin manually for greater control of click handlers
+            this.$collapse = this.$('.collapse').collapse({
+                toggle: !this.collapsed
+            });
+
+
+        },
+        //Extended functions
+        remove: function() {
+            this.view.remove();
+            Backbone.View.prototype.remove.call(this);
+        },
+
+        updateHeaderState: function() {
+            // The "collapsed" class controls the icons with class "rotating-chevron"
+            this.$header.toggleClass('collapsed', this.collapsed);
+        },
+
+        setSubTitle: function(subtitle) {
+            this.subtitle = subtitle;
+            this.$('.collapsible-subtitle').text(subtitle);
+        },
+
+        toggleSubtitle: function(toggle) {
+            this.$('.collapsible-subtitle').toggleClass('hide', !toggle)
+        },
+
+        show: function() {
+            if (this.collapsed) {
+                this.$collapse.collapse('show');
+            }
+        },
+
+        hide: function() {
+            if (!this.collapsed) {
+                this.$collapse.collapse('hide');
+            }
+        },
+
+        toggle: function(state) {
+            if (state) {
+                this.show();
+            } else {
+                this.hide();
+            }
+        }
     });
 
 });
