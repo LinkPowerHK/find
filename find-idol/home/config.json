@@ -1,0 +1,53 @@
+{
+  "login" : {
+    "name" : "CommunityAuthentication",
+    "defaultLogin" : {
+      "username" : null,
+      "password" : null
+    },
+    "community" : {
+      "protocol" : "HTTP",
+      "host" : "192.168.11.146",
+      "port" : 9030
+    },
+    "method" : "autonomy"
+  },
+  "content" : {
+    "protocol" : "HTTP",
+    "host" : "192.168.11.146",
+    "port" : 9000
+  },
+  "queryManipulation" : {
+    "server" : {
+      "protocol" : "HTTP",
+      "host" : "localhost",
+      "port" : 16000
+    },
+    "expandQuery" : true,
+    "blacklist" : "ISO_BLACKLIST",
+    "typeAheadMode" : "Index",
+    "enabled" : false
+  },
+  "view" : {
+    "connector" : {
+      "protocol" : "HTTP",
+      "host" : "localhost",
+      "port" : 10000
+    },
+    "referenceField" : "DREREFERENCE",
+    "viewingMode" : "FIELD",
+    "highlighting" : true,
+    "host" : "192.168.11.146",
+    "protocol" : "HTTP",
+    "port" : 9080
+  },
+  "mmap" : {
+    "enabled" : false,
+    "baseUrl" : ""
+  },
+  "map" : {
+    "tileUrlTemplate" : "",
+    "enabled" : false,
+    "attribution" : ""
+  }
+}

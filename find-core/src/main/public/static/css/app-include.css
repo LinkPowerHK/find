@@ -505,16 +505,6 @@ fieldset.radio-fieldset > label {
     height: 20px;
 }
 
-.hp-logo-footer {
-    background: url('../img/HPE_logo.png') no-repeat center;
-    background-size: 140px 55px;
-    height: 55px;
-    width: 140px;
-    position: fixed;
-    bottom: 20px;
-    left: calc(50% - 70px);
-}
-
 a.unstyled {
     color:#fff;
     text-decoration: none;

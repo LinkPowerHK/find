@@ -411,7 +411,6 @@ define([
             this.$('.service-view-container').addClass('hide');
             this.$('.query-service-view-container').removeClass('hide');
             this.$('.app-logo').addClass('hide');
-            this.$('.hp-logo-footer').addClass('hide');
             this.$('.see-all-documents').addClass('hide');
 
             this.removeDocumentDetailView();
@@ -430,7 +429,6 @@ define([
 
             this.$('.service-view-container').addClass('hide');
             this.$('.app-logo').removeClass('hide');
-            this.$('.hp-logo-footer').removeClass('hide');
             this.$('.see-all-documents').removeClass('hide');
 
             this.removeDocumentDetailView();

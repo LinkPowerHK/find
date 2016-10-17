@@ -92,7 +92,6 @@ define([
                         }.bind(this)
                     });
 
-                    this.comparisonView.$el.insertBefore(this.$('.hp-logo-footer'));
                     this.comparisonView.render();
                 }.bind(this)
             };
