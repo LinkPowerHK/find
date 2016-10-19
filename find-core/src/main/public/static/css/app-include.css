@@ -850,6 +850,7 @@ input.find-input {
 
 .search-text {
     font-family: Metric-Bold;
+    font-weight: bold;
 }
 
 .also-searching-for {
