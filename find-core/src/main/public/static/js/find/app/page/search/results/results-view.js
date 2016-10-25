@@ -52,6 +52,10 @@ define([
 
     var SCROLL_INCREMENT = 30;
 
+    //
+    var tags=$("tags");
+    //
+
     return Backbone.View.extend({
         //to be overridden
         generateErrorMessage: null,
@@ -92,7 +96,10 @@ define([
                 event.stopPropagation();
                 var documentModel = this.documentsCollection.get($(event.target).closest('[data-cid]').data('cid'));
                 vent.navigateToSuggestRoute(documentModel);
-            }
+            },
+
+            //
+
         },
 
         initialize: function(options) {
@@ -267,6 +274,10 @@ define([
                 summary: summary,
                 promotion: isPromotion,
                 date: model.has('date') ? model.get('date').fromNow() : null,
+                //
+                index:model.get('index'),
+                tag:model.get('tag'),
+                //
                 contentType: getContentTypeClass(model),
                 staticPromotion: model.get('promotionCategory') === 'STATIC_CONTENT_PROMOTION',
                 thumbnail: model.get('thumbnail')

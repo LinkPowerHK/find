@@ -80,6 +80,9 @@ define([
             response.sourceType = getFieldValue(response.fieldMap.sourceType);
             response.transcript = getFieldValue(response.fieldMap.transcript);
 
+            //
+            response.tag = getFieldValues(response.fieldMap.tag);
+            //
             response.media = getMediaType(response.contentType);
 
             response.authors = getFieldValues(response.fieldMap.authors);

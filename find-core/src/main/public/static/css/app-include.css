@@ -1117,11 +1117,24 @@ input:-moz-placeholder::before {
     height: 76px;
 }
 
-.find-banner-container {
-    background: #49B59B url('../img/Find_banner.png');
-    height: 125px;
-    z-index: 1;
+#tagcloud {
+    margin : 10px auto;
+    margin-top: 0px;
+    width : 80%;
+    padding : 30px 0;
 }
+
+#tagcloud a{
+    padding: 0 5px ;
+}
+
+.find-banner-container{
+    background-color: #fcf8e3;
+    min-height : 125px;
+    height : 100% !important ;
+    z-index: -2;
+}
+
 
 .popover h1, .popover h2, .popover h3, .popover h4, .popover h5, .popover h6 , .popover a{
     color: #00b388;
