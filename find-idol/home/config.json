@@ -20,10 +20,10 @@
   "queryManipulation" : {
     "server" : {
       "protocol" : "HTTP",
-      "host" : "localhost",
+      "host" : "192.168.11.146",
       "port" : 16000
     },
-    "expandQuery" : true,
+    "expandQuery" : false,
     "blacklist" : "ISO_BLACKLIST",
     "typeAheadMode" : "Index",
     "enabled" : false
@@ -31,7 +31,7 @@
   "view" : {
     "connector" : {
       "protocol" : "HTTP",
-      "host" : "localhost",
+      "host" : "192.168.11.146",
       "port" : 10000
     },
     "referenceField" : "DREREFERENCE",

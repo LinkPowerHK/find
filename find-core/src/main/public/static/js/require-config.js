@@ -23,6 +23,9 @@ require.config({
         iCheck: '../bower_components/iCheck/icheck',
         chosen: '../bower_components/chosen/chosen.jquery',
         jquery: '../bower_components/jquery/jquery',
+        //
+        jquery_ui:'../bower_components/jquery-ui/jquery-ui',
+        //
         'js-whatever': '../bower_components/hp-autonomy-js-whatever/src',
         json2: '../bower_components/json/json2',
         'login-page': '../bower_components/hp-autonomy-login-page/src',
@@ -50,6 +53,7 @@ require.config({
         },
         underscore: {
             exports: '_'
-        }
+        },
+        jquery_ui:['jquery']
     }
 });
