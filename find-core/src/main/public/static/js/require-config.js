@@ -24,7 +24,7 @@ require.config({
         chosen: '../bower_components/chosen/chosen.jquery',
         jquery: '../bower_components/jquery/jquery',
         //
-        jquery_ui:'../bower_components/jquery-ui/jquery-ui',
+        jquery_ui:'../bower_components/jquery-ui/ui/jquery-ui',
         //
         'js-whatever': '../bower_components/hp-autonomy-js-whatever/src',
         json2: '../bower_components/json/json2',
