@@ -55,3 +55,6 @@ tmp
 # Database
 *.db
 idol/home/config.json
+*/.settings/
+*.factorypath
+hod/home/config.json

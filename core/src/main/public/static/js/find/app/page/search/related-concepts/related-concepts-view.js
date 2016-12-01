@@ -98,6 +98,46 @@ define([
                 var $target = $(e.currentTarget);
                 var queryCluster = Number($target.attr('data-entity-cluster'));
                 this.clickHandler(this.entityCollection.getClusterEntities(queryCluster));
+            },
+            //Extended features
+            'click > .collapsible-header': function() {
+                this.$collapse.collapse('toggle');
+
+                // other handlers called before this trigger
+                this.trigger('toggle', this.collapsed);
+            },
+            //Extra
+            'click > .collapsible-test': function() {
+                this.$test.collapse('toggle');
+
+                this.trigger('toggletest', this.collapsedtest);
+            },
+
+            'show.bs.collapse > .clps': function() {
+                this.collapsed = false;
+                this.updateHeaderState();
+                this.trigger('show');
+            },
+            'show.bs.collapse > .test': function() {
+                this.collapsedtest = false;
+                this.updateHeaderTest();
+                this.trigger('showtest');
+            },
+            'shown.bs.collapse': function() {
+                if (this.renderOnOpen) {
+                    this.view.render();
+                }
+                this.trigger('shown');
+            },
+            'hide.bs.collapse > .clps': function() {
+                this.collapsed = true;
+                this.updateHeaderState();
+                this.trigger('hide');
+            },
+            'hide.bs.collapse > .test': function() {
+                this.collapsedtest = true;
+                this.updateHeaderTest();
+                this.trigger('hidetest');
             }
         },
 
@@ -160,6 +200,14 @@ define([
             this.listenTo(this.entityCollection, 'error', function () {
                 this.model.set('viewState', ViewState.ERROR);
             });
+            //Extended features
+            this.view = options.view;
+            this.collapsed = options.collapsed || false;
+            this.title = options.title;
+            this.subtitle = options.subtitle;
+            this.renderOnOpen = options.renderOnOpen || false;
+            //
+            this.collapsedtest = options.collapsedtest || false;
         },
 
         render: function () {
@@ -180,8 +228,75 @@ define([
 
             this.selectViewState = viewStateSelector(viewStateElements);
             updateForViewState.call(this);
-        }
 
+            //Extended features
+
+            this.$header = this.$('.collapsible-header');
+            //Added
+            this.$headertest = this.$('.collapsible-test');
+
+            this.updateHeaderState();
+            this.updateHeaderTest();
+            // activate plugin manually for greater control of click handlers
+            this.$collapse = this.$('.clps').collapse({
+                toggle: !this.collapsed
+            });
+            //
+            this.$test = this.$('.test').collapse({
+                toggle:!this.collapsedtest
+            });
+        },
+        //Extended functions
+        remove: function() {
+            this.view.remove();
+            Backbone.View.prototype.remove.call(this);
+        },
+
+        updateHeaderState: function() {
+            // The "collapsed" class controls the icons with class "rotating-chevron"
+            this.$header.toggleClass('collapsed', this.collapsed);
+        },
+
+        show: function() {
+            if (this.collapsed) {
+                this.$collapse.collapse('show');
+            }
+        },
+
+        hide: function() {
+            if (!this.collapsed) {
+                this.$collapse.collapse('hide');
+            }
+        },
+
+        toggle: function(state) {
+            if (state) {
+                this.show();
+            } else {
+                this.hide();
+            }
+        },
+        //Added
+        updateHeaderTest: function(){
+            this.$headertest.toggleClass('collapsed',this.collapsedtest);
+        },
+        showtest: function () {
+            if(this.collapsedtest){
+             this.$test.collapse('show');
+            }
+        },
+        hidetest:function () {
+            if(!this.collapsedtest){
+                this.$test.collapse('hide');
+            }
+        },
+        toggletest: function (state) {
+            if(state){
+                this.showtest();
+            }else {
+                this.hidetest();
+            }
+        }
     });
 
 });

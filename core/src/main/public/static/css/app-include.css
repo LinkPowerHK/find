@@ -579,19 +579,8 @@ fieldset.radio-fieldset > label {
 
 .find-logo-small {
     background: url('../img/Find_Logo_sml.png') no-repeat;
-    background-size: 100px 20px;
-    width: 100px;
-    height: 20px;
-}
-
-.hp-logo-footer {
-    background: url('../img/HPE_logo.png') no-repeat center;
-    background-size: 140px 55px;
-    height: 55px;
-    width: 140px;
-    position: fixed;
-    bottom: 20px;
-    left: calc(50% - 70px);
+    width:200px;
+    height: 76px;
 }
 
 a.unstyled {
@@ -710,6 +699,20 @@ input.find-input {
     font-style: italic;
     font-size: small;
     font-weight: bold;
+    cursor: default;
+}
+
+.document-info {
+    color: #aeaeae;
+    font-style: normal;
+    font-size: 15px;
+    cursor: default;
+}
+
+.document-info-t {
+    color: #000000;
+    font-size: 15px;
+    font-family: Metric-Semibold;
     cursor: default;
 }
 
@@ -1230,12 +1233,12 @@ input:-moz-placeholder::before {
 }
 
 .find-navbar {
-    background-color: #425563;
+    background: url('../img/banner.png');
     color: #fff;
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
     margin-bottom: 0;
-    height: 70px;
+    height: 76px;
 }
 
 .find-banner-container {
