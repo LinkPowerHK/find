@@ -4,6 +4,15 @@
  */
 
 require.config({
+    //i18n config
+    config: {
+        //Set the config for the i18n
+        //module ID
+        i18n: {
+            locale:  localStorage.getItem('locale')
+        }
+    },
+    //
     paths: {
         css: '../css',
         'about-page': '../bower_components/hp-autonomy-about-page/src',

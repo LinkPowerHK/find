@@ -4,5 +4,7 @@
  */
 define(['js-whatever/js/substitution'], {
     root: true,
-    'en-gb': true
+    'en-gb': true,
+	'zh-cn':true,
+	'zh-hk':true
 });

@@ -26,6 +26,13 @@ define([
                     var pageName = $(event.target).attr('data-pagename');
                     vent.navigate('find/' + pageName);
                 }
+            },
+            'click a[data-lang]' : function(event){
+                event.preventDefault();
+                var language = $(event.target).attr('data-lang');
+
+                window.localStorage.setItem('locale', language);
+                location.reload();
             }
         },
 
