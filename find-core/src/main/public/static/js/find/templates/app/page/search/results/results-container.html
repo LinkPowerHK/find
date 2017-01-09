@@ -19,54 +19,10 @@
         <p class="result-summary">
             <%= summary %>
         </p>
-        <div class="document-date">
+        <p class="document-date">
             <span>Database:&nbsp<%-index %></span>&nbsp;&nbsp;
             <span>Date:&nbsp<%- date %></span>&nbsp;&nbsp;
-            <span>Tag:&nbsp<img class="tagButton" data-cid="<%-cid %>" ><ul class="singleFieldTags" style="display: none;" id="<%-cid %>"></ul></span>
-        </div>
-        <script>
-            $(function() {
-                var sampleTags = ['c++', 'java', 'php', 'coldfusion', 'javascript', 'asp'];
-                $('.singleFieldTags').tagit({
-                    availableTags: sampleTags
-                });
-                var eventTags = $('#eventTags');
-
-                var addEvent = function (text) {
-                    $('#events_container').append(text + '<br>');
-                };
-
-                eventTags.tagit({
-                    availableTags: sampleTags,
-                    beforeTagAdded: function (evt, ui) {
-                        if (!ui.duringInitialization) {
-                            addEvent('beforeTagAdded: ' + eventTags.tagit('tagLabel', ui.tag));
-                        }
-                    },
-                    afterTagAdded: function (evt, ui) {
-                        if (!ui.duringInitialization) {
-                            addEvent('afterTagAdded: ' + eventTags.tagit('tagLabel', ui.tag));
-                        }
-                    },
-                    beforeTagRemoved: function (evt, ui) {
-                        addEvent('beforeTagRemoved: ' + eventTags.tagit('tagLabel', ui.tag));
-                    },
-                    afterTagRemoved: function (evt, ui) {
-
-                        addEvent('afterTagRemoved: ' + eventTags.tagit('tagLabel', ui.tag));
-
-                    },
-
-                    onTagClicked: function (evt, ui) {
-                        addEvent('onTagClicked: ' + eventTags.tagit('tagLabel', ui.tag));
-                    },
-                    onTagExists: function (evt, ui) {
-                        addEvent('onTagExists: ' + eventTags.tagit('tagLabel', ui.existingTag));
-                    }
-                })
-            });
-
-        </script>
+        </p>
 
         <p class="text-right">
             <% if (!staticPromotion) { %>

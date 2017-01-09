@@ -15,12 +15,10 @@ define([
     'text!find/templates/app/page/loading-spinner.html',
     'moment',
     'i18n!find/nls/bundle',
-    'i18n!find/nls/indexes',
-    'find/app/page/search/results/tag-it'
+    'i18n!find/nls/indexes'
 ], function(Backbone, $, _, vent, DocumentModel, PromotionsCollection, SortView, ResultsNumberView,
             viewClient, documentMimeTypes, addLinksToSummary, template, resultsTemplate,
             loadingSpinnerTemplate, moment, i18n, i18n_indexes) {
-
 
     function checkScroll() {
         var triggerPoint = 500;
@@ -65,14 +63,6 @@ define([
         errorTemplate: _.template('<li class="error-message span10"><span><%-feature%>: </span><%-error%></li>'),
 
         events: {
-            'click .tagButton': function(e){
-                e.stopPropagation();
-                var $target = $(e.currentTarget);
-
-                var n = $target.data('cid');
-                this.$('.singleFieldTags[id=' + n + ']').slideToggle('slow');
-            },
-
             'click .highlighted-entity-text': function(e) {
                 e.stopPropagation();
 

@@ -35,7 +35,7 @@ define([
                     title: i18n['search.indexes.invalidIndex']
                 });
             } else {
-
+                this.$el.tooltip('destroy');
             }
         }
     });

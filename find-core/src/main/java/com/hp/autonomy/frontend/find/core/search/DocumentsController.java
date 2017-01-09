@@ -84,7 +84,6 @@ public abstract class DocumentsController<S extends Serializable, R extends Sear
             @RequestParam(value = AUTO_CORRECT_PARAM, defaultValue = "true") final boolean autoCorrect
     ) throws E {
         final SearchRequest<S> searchRequest = parseRequestParamsToObject(text, resultsStart, maxResults, summary, index, fieldText, sort, minDate, maxDate, highlight, autoCorrect);
-        final SearchRequestNew<S> searchRequestNew = parseRequestParamsToObject(text, resultsStart, maxResults, summary, index, fieldText, sort, minDate, maxDate, highlight, autoCorrect, weight);
         return documentsService.queryTextIndex(searchRequest);
     }
 
