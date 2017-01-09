@@ -48,8 +48,8 @@ public class HodDocumentsController extends DocumentsController<ResourceIdentifi
             final DateTime minDate,
             final DateTime maxDate,
             final boolean highlight,
-            final boolean autoCorrect
-    ) {
-        return super.parseRequestParamsToObject(text, resultsStart, maxResults, summary, databases, fieldText, sort, minDate, maxDate, highlight, false);
+            final boolean autoCorrect,
+            int weight) {
+        return super.parseRequestParamsToObject(text, resultsStart, maxResults, summary, databases, fieldText, sort, minDate, maxDate, highlight, false, weight);
     }
 }
