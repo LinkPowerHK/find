@@ -46,3 +46,9 @@ tmp
 
 # Database
 *.db
+.settings/
+core/
+idol/
+hod/
+hsod-dist/
+on-prem-dist/
