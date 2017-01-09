@@ -22,6 +22,7 @@ define([
         'app.from': 'From',
         'app.loading': '載入中...',
         'app.logout': '登出',
+        'app.lang':'語言',
         'app.name': "HPE Find",
         'app.ok': 'OK',
         'app.rename': 'Rename',
