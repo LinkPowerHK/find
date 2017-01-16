@@ -14,7 +14,8 @@ define(['underscore'], function(_) {
                 min_date: queryModel.getIsoDate('minDate'),
                 max_date: queryModel.getIsoDate('maxDate'),
                 summary: 'context',
-                weight: '90',
+                min_score: '80',
+                max_score: '100',
                 text: queryModel.get('queryText')
             };
         },

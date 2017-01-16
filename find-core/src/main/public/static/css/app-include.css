@@ -988,6 +988,15 @@ input.find-input {
     color: #fff;
 }
 
+.reverse-animated-container .ad-search,
+.reverse-animated-container .ad-search:hover {
+    color: inherit;
+}
+
+.animated-container .ad-search,
+.animated-container .ad-search:hover {
+    color: #fff;
+}
 
 .service-view-container, .service-view-sub-container {
     height: 100vh;
@@ -1091,6 +1100,7 @@ input:-moz-placeholder::before {
     font-family: fontAwesome;
     content: '\f105';
     color: #425563;
+
 }
 
 .find-input-button {

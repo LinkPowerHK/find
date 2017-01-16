@@ -36,19 +36,19 @@ public abstract class AbstractDocumentsControllerTest<S extends Serializable, R 
 
     @Test
     public void query() throws E {
-        documentsController.query(50,"Some query text", 1, 30, null, Collections.<S>emptyList(), null, null, null, null, true, false);
+        documentsController.query("Some query text", 1, 30, null, Collections.<S>emptyList(), null, null, null, null, true, false);
         verify(documentsService).queryTextIndex(Matchers.<SearchRequest<S>>any());
     }
 
     @Test
     public void queryForPromotions() throws E {
-        documentsController.queryForPromotions(50,"Some query text", 1, 30, null, Collections.<S>emptyList(), null, null, null, null, true, false);
+        documentsController.queryForPromotions("Some query text", 1, 30, null, Collections.<S>emptyList(), null, null, null, null, true, false);
         verify(documentsService).queryTextIndexForPromotions(Matchers.<SearchRequest<S>>any());
     }
 
     @Test
     public void queryPaginationTest() throws E {
-        documentsController.query(50,"Some query text", 30, 60, null, Collections.<S>emptyList(), null, null, null, null, true, false);
+        documentsController.query("Some query text", 30, 60, null, Collections.<S>emptyList(), null, null, null, null, true, false);
         verify(documentsService).queryTextIndex(Matchers.<SearchRequest<S>>any());
     }
 

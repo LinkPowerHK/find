@@ -36,7 +36,8 @@ public abstract class DocumentsController<S extends Serializable, R extends Sear
     public static final String SIMILAR_DOCUMENTS_PATH = "similar-documents";
     public static final String GET_DOCUMENT_CONTENT_PATH = "get-document-content";
     //
-    public static final String WEIGHT_PARAM = "weight";
+    public static final String MAX_SCORE_PARAM = "max_score";
+    public static final String MIN_SCORE_PARAM = "min_score";
     //
     public static final String TEXT_PARAM = "text";
     public static final String RESULTS_START_PARAM = "start";
@@ -68,9 +69,6 @@ public abstract class DocumentsController<S extends Serializable, R extends Sear
     @RequestMapping(value = QUERY_PATH, method = RequestMethod.GET)
     @ResponseBody
     public Documents<R> query(
-            //
-            @RequestParam(WEIGHT_PARAM) final int weight,
-            //
             @RequestParam(TEXT_PARAM) final String text,
             @RequestParam(value = RESULTS_START_PARAM, defaultValue = "1") final int resultsStart,
             @RequestParam(MAX_RESULTS_PARAM) final int maxResults,
@@ -91,9 +89,6 @@ public abstract class DocumentsController<S extends Serializable, R extends Sear
     @RequestMapping(value = PROMOTIONS_PATH, method = RequestMethod.GET)
     @ResponseBody
     public Documents<R> queryForPromotions(
-            //
-            @RequestParam(WEIGHT_PARAM) final int weight,
-            //
             @RequestParam(TEXT_PARAM) final String text,
             @RequestParam(value = RESULTS_START_PARAM, defaultValue = "1") final int resultsStart,
             @RequestParam(MAX_RESULTS_PARAM) final int maxResults,
@@ -115,12 +110,6 @@ public abstract class DocumentsController<S extends Serializable, R extends Sear
         final QueryRestrictions<S> queryRestrictions = queryRestrictionsBuilder.build(text, fieldText, databases, minDate, maxDate, Collections.<String>emptyList(), Collections.<String>emptyList());
         return new SearchRequest<>(queryRestrictions, resultsStart, maxResults, summary, MAX_SUMMARY_CHARACTERS, sort, highlight, autoCorrect, null);
     }
-    //
-    protected SearchRequestNew<S> parseRequestParamsToObject(final String text, final int resultsStart, final int maxResults, final String summary, final List<S> databases, final String fieldText, final String sort, final DateTime minDate, final DateTime maxDate, final boolean highlight, final boolean autoCorrect, int weight) {
-        final QueryRestrictions<S> queryRestrictions = queryRestrictionsBuilder.build(text, fieldText, databases, minDate, maxDate, Collections.<String>emptyList(), Collections.<String>emptyList());
-        return new SearchRequestNew<>(queryRestrictions, resultsStart, maxResults, summary, MAX_SUMMARY_CHARACTERS, sort, highlight, autoCorrect, weight, null);
-    }
-    //
 
     @SuppressWarnings("MethodWithTooManyParameters")
     @RequestMapping(value = SIMILAR_DOCUMENTS_PATH, method = RequestMethod.GET)

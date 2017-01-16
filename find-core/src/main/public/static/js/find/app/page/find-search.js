@@ -494,6 +494,7 @@ define([
             this.$('.query-service-view-container').removeClass('hide');
             this.$('.app-logo').addClass('hide');
             this.$('.see-all-documents').addClass('hide');
+            this.$('.ad-search').removeClass('hide');
 
             this.removeDocumentDetailView();
             this.removeSuggestView();
@@ -512,6 +513,7 @@ define([
             this.$('.service-view-container').addClass('hide');
             this.$('.app-logo').removeClass('hide');
             this.$('.see-all-documents').removeClass('hide');
+            this.$('.ad-search').addClass('hide');
 
             this.removeDocumentDetailView();
             this.removeSuggestView();

@@ -177,6 +177,7 @@ define([
         'search.savedSearches.confirm.resetMessage.title': 'Reset saved search',
         'search.savedSearches.deleteFailed': 'An error occurred deleting the saved search',
         'search.seeAllDocuments': 'See all documents',
+        'search.adSearch':'Advanced Search',
         'search.selected': 'Selected',
         'search.similarDocuments': 'Similar documents',
         'search.similarDocuments.error': 'An error occurred fetching similar documents',
