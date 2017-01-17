@@ -177,7 +177,7 @@ define([
         'search.savedSearches.confirm.resetMessage.title': 'Reset saved search',
         'search.savedSearches.deleteFailed': 'An error occurred deleting the saved search',
         'search.seeAllDocuments': '查看所有文件',
-        'search.adSearch':'高级搜索',
+        'search.adSearch':'进阶搜寻',
         'search.selected': 'Selected',
         'search.similarDocuments': 'Similar documents',
         'search.similarDocuments.error': 'An error occurred fetching similar documents',
